@@ -1,13 +1,15 @@
 public class Main {
     public static void main(String[] args) {
         MailServer server = new MailServer();
+        MailClient alice = new MailClient("Ahtisham", server);
+        MailClient bob = new MailClient("Saad", server);
 
-        MailClient ahtisham = new MailClient("Ahtisham", server);
-        MailClient sir = new MailClient("Engr Saad Mazhar", server);
+        alice.sendEmail("Saad", "Sir Date Extend kr dyin");
 
-        ahtisham.sendMail("Engr Saad Mazhar", "Hello Sir, Lab check kr layin");
+        System.out.println("** Sir checking mail **");
+        bob.printNextMailItem();
 
-        System.out.println("Sir checking Email");
-        sir.printNextMailItem();
+        System.out.println("** Sir checking mail again **");
+        bob.printNextMailItem();
     }
 }

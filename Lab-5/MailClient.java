@@ -1,19 +1,40 @@
-public class MailClient {
-    private String name;
-    private MailServer server;
+import java.util.ArrayList;
+import java.util.List;
 
-    public MailClient(String name, MailServer server) {
-        this.name = name;
+public class MailClient {
+    private String username;
+    private MailServer server;
+    private List<MailItem> inbox;
+
+    public MailClient(String username, MailServer server) {
+        this.username = username;
         this.server = server;
+        this.inbox = new ArrayList<>();
+        server.registerClient(this);
     }
 
-    public void sendMail(String to, String message) {
-        MailItem item = new MailItem(name, to, message);
+    public String getUsername() {
+        return username;
+    }
+
+    public void sendEmail(String to, String message) {
+        MailItem item = new MailItem(username, to, message);
         server.post(item);
     }
 
+    public void receive(MailItem item) {
+        inbox.add(item);
+    }
+
     public MailItem getNextMailItem() {
-        return server.getNextMailItem(name);
+        if (!inbox.isEmpty()) {
+            return inbox.remove(0);
+        }
+        return null;
+    }
+
+    public int howManyPending() {
+        return inbox.size();
     }
 
     public void printNextMailItem() {
@@ -21,7 +42,7 @@ public class MailClient {
         if (item != null) {
             item.print();
         } else {
-            System.out.println("No new mail for " + name);
+            System.out.println("No new mail for " + username);
         }
     }
 }

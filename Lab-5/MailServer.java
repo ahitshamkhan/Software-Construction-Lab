@@ -2,23 +2,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MailServer {
-    private List<MailItem> items;
+    private List<MailClient> clients;
 
     public MailServer() {
-        items = new ArrayList<>();
+        clients = new ArrayList<>();
+    }
+
+    public void registerClient(MailClient client) {
+        clients.add(client);
     }
 
     public void post(MailItem item) {
-        items.add(item);
-    }
-
-    public MailItem getNextMailItem(String who) {
-        for (MailItem item : items) {
-            if (item.getTo().equals(who)) {
-                items.remove(item);
-                return item;
+        for (MailClient client : clients) {
+            if (client.getUsername().equals(item.getTo())) {
+                client.receive(item);
+                return;
             }
         }
-        return null;
+        System.out.println("Recipient not found: " + item.getTo());
     }
 }
