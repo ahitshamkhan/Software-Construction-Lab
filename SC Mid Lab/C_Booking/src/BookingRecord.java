@@ -1,4 +1,5 @@
 
+// for C1 we have complete class
 public class BookingRecord {
     private String studentName;
     private Equipment equipment;
