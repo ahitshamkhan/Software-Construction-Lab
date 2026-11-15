@@ -1,0 +1,5 @@
+BookingRecord stores a reference to the same Equipment object held in the inventory. When a student returns the laptop, BookingDesk can mark it free using that reference. One risk is that other code could mark the laptop free while its booking is still active.
+
+BookingDesk should enforce the booking rules because it can check equipment availability and count a student’s active bookings. Every request through bookEquipment gets the same checks.
+
+If the bookings list were public, outside code could clear it while the laptop was still booked. A later return would find no booking record, leaving the laptop unavailable.

@@ -3,13 +3,13 @@ public class Main {
     public static void main(String[] args) {
         BookingDesk desk = new BookingDesk();
 
-        String firstEquipmentId = "EXX"; // Example: use E42 if your roll number ends in 42
-        String laptopId = "L01";
-        String routerId = "R01";
+        String firstEquipmentId = "014"; // Example: use E42 if your roll number ends in 42
+        String laptopId = "Dell-1";
+        String routerId = "D-014";
 
-        desk.addEquipment(new Equipment(firstEquipmentId, "Oscilloscope", "Electronics"));
-        desk.addEquipment(new Equipment(laptopId, "Laptop", "Computing"));
-        desk.addEquipment(new Equipment(routerId, "Router", "Networking"));
+        desk.addEquipment(new Equipment(firstEquipmentId, "Switch", "Electronics"));
+        desk.addEquipment(new Equipment(laptopId, "Laptop Dell I5", "Computing"));
+        desk.addEquipment(new Equipment(routerId, "Router 1841", "Networking"));
         desk.addEquipment(new Equipment("P01", "Raspberry Pi", "Computing"));
 
         desk.printInventory();
