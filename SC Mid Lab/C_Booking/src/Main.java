@@ -37,5 +37,14 @@ public class Main {
 
         System.out.println("T8 Book returned laptop: "
                 + desk.bookEquipment("Sara", laptopId, 1));
+
+        BookingDesk practiceDesk = new BookingDesk();
+        practiceDesk.addEquipment(new Equipment("TEST01", "Practice Laptop", "Computing"));
+
+        System.out.println("6 hours : "
+                + practiceDesk.bookEquipment("Ahtisham", "TEST01", 6));
+
+        System.out.println("5 hours : "
+                + practiceDesk.bookEquipment("Ahtisham", "TEST01", 5));
     }
 }

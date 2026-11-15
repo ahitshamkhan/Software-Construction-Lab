@@ -4,7 +4,7 @@ import java.util.Iterator;
 public class BookingDesk {
     // ---- Set these two constants from the Variant Table on your paper ----
     private static final int MAX_ACTIVE = 2;   // max active bookings per student
-    private static final int MAX_HOURS  = 4;   // max hours for one booking
+    private static final int MAX_HOURS  = 5;   // max hours for one booking
 
     private ArrayList<Equipment> inventory;
     private ArrayList<BookingRecord> bookings;   // BookingRecord = YOU write it (Task C1)
